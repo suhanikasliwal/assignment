@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+      width: 300px;
+    }
+    #display {
+      width: 100%;
+      height: 40px;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: right;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .btn {
+      width: 60px;
+      height: 40px;
+      margin: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #eee;
+    }
+    .btn:hover {
+      background-color: #ddd;
+    }
+    .highlight {
+      background-color: yellow !important;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" id="display" readonly />
+
+  <div>
+    <button class="btn" onclick="append('7')">7</button>
+    <button class="btn" onclick="append('8')">8</button>
+    <button class="btn" onclick="append('9')">9</button>
+    <button class="btn" onclick="append('/')">/</button>
+  </div>
+  <div>
+    <button class="btn" onclick="append('4')">4</button>
+    <button class="btn" onclick="append('5')">5</button>
+    <button class="btn" onclick="append('6')">6</button>
+    <button class="btn" onclick="append('*')">*</button>
+  </div>
+  <div>
+    <button class="btn" onclick="append('1')">1</button>
+    <button class="btn" onclick="append('2')">2</button>
+    <button class="btn" onclick="append('3')">3</button>
+    <button class="btn" onclick="append('-')">-</button>
+  </div>
+  <div>
+    <button class="btn" onclick="append('0')">0</button>
+    <button class="btn" onclick="append('.')">.</button>
+    <button class="btn" onclick="calculate()">=</button>
+    <button class="btn" onclick="append('+')">+</button>
+  </div>
+  <div>
+    <button class="btn" onclick="clearDisplay()">C</button>
+    <button class="btn" onclick="toggleHighlight()">Highlight</button>
+  </div>
+</div>
+
+<script>
+  function append(value) {
+    $("#display").val($("#display").val() + value);
+  }
+
+  function calculate() {
+    try {
+      let result = eval($("#display").val());
+      $("#display").val(result);
+    } catch (e) {
+      $("#display").val("Error");
+    }
+  }
+
+  function clearDisplay() {
+    $("#display").val("");
+    $("#display").removeClass("highlight");
+  }
+
+  function toggleHighlight() {
+    $("#display").toggleClass("highlight");
+  }
+</script>
+
+</body>
+</html>

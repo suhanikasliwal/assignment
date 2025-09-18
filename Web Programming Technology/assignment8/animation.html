@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<HEAD>
+    <TITLE>Animation</TITLE>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $('#fadein').click(function(){  
+        $('#box').fadeIn(1000);
+        });
+        $('#fadeout').click(function(){
+      $('#box').fadeOut(1000);
+        });
+        });
+    </script>
+</HEAD>
+<BODY>
+    <div id="box" style="height: 80px;width:80px;background-color: aqua;"></div>
+    <p></p>
+        <button id="fadein">FadeIn</button>
+        <button id="fadeout">Fadeout</button>
+</BODY>

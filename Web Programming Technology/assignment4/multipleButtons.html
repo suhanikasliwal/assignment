@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            margin: 5px;
+            padding: 8px;
+        }
+        #output {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Array Manipulation</h2>
+    <input type="number" id="inputValue" placeholder="Enter a number" />
+    <br>
+    <button onclick="addAtEnd()">Add at End</button>
+    <button onclick="addAtStart()">Add at Start</button>
+    <button onclick="deleteFromEnd()">Delete from End</button>
+    <button onclick="deleteFromStart()">Delete from Start</button>
+    <button onclick="displayOdd()">Display Odd Numbers</button>
+    <button onclick="displayEven()">Display Even Numbers</button>
+
+    <div id="output">Array: []</div>
+
+    <script>
+        let arr = [];
+
+        function getInput() {
+            return parseInt(document.getElementById("inputValue").value);
+        }
+
+        function updateDisplay(message) {
+            document.getElementById("output").textContent = message;
+        }
+
+        function addAtEnd() {
+            const num = getInput();
+            if (!isNaN(num)) arr.push(num);
+            updateDisplay("Array: [" + arr.join(", ") + "]");
+        }
+
+        function addAtStart() {
+            const num = getInput();
+            if (!isNaN(num)) arr.unshift(num);
+            updateDisplay("Array: [" + arr.join(", ") + "]");
+        }
+
+        function deleteFromEnd() {
+            arr.pop();
+            updateDisplay("Array: [" + arr.join(", ") + "]");
+        }
+
+        function deleteFromStart() {
+            arr.shift();
+            updateDisplay("Array: [" + arr.join(", ") + "]");
+        }
+
+        function displayOdd() {
+            const odds = arr.filter(num => num % 2 !== 0);
+            updateDisplay("Odd Numbers: [" + odds.join(", ") + "]");
+        }
+
+        function displayEven() {
+            const evens = arr.filter(num => num % 2 === 0);
+            updateDisplay("Even Numbers: [" + evens.join(", ") + "]");
+        }
+    </script>
+</body>
+</html>

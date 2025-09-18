@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Employee Data Form</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    input {
+      padding: 5px;
+      width: 200px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Employee Details</h2>
+  
+  <!-- Employee Data Form -->
+  <form id="employeeForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required><br><br>
+
+    <button type="button" onclick="submitForm()">Submit</button>
+  </form>
+
+  <!-- Error message -->
+  <div id="errorMessage" class="error"></div>
+
+  <!-- Employee Data Table -->
+  <div id="employeeData"></div>
+
+  <script>
+    function submitForm() {
+      // Clear previous error messages
+      document.getElementById('errorMessage').innerHTML = '';
+      document.getElementById('employeeData').innerHTML = '';
+
+      // Get the form values
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const dob = document.getElementById('dob').value.trim();
+
+      // Perform validation: Check if any field is empty
+      if (!firstName || !lastName || !email || !dob) {
+        document.getElementById('errorMessage').innerHTML = 'All fields are required!';
+        return;
+      }
+
+      // Create a table to display the entered data
+      const table = document.createElement('table');
+
+      // Create the table header row
+      const headerRow = document.createElement('tr');
+      const headers = ['First Name', 'Last Name', 'Email', 'Date of Birth'];
+      headers.forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+      });
+      table.appendChild(headerRow);
+
+      // Create a table row to display the employee data
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${firstName}</td><td>${lastName}</td><td>${email}</td><td>${dob}</td>`;
+      table.appendChild(row);
+
+      // Append the table to the DOM
+      document.getElementById('employeeData').appendChild(table);
+    }
+  </script>
+
+</body>
+</html>

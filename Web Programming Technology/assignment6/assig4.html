@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Data with Username</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+    table {
+      margin-top: 20px;
+      width: 60%;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter User Data</h2>
+  <form id="userForm">
+    <label>First Name: <input type="text" id="firstName" required></label><br><br>
+    <label>Last Name: <input type="text" id="lastName" required></label><br><br>
+    <label>Age: <input type="number" id="age" required min="1"></label><br><br>
+    <button type="submit">Add User</button>
+  </form>
+
+  <h2>Users Table</h2>
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>First Name</th><th>Last Name</th><th>Age</th><th>Username</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const users = [];
+
+    // Function to create username as per rules
+    function createUsername(firstName, lastName, age) {
+      const firstTwo = firstName.slice(0, 2).toLowerCase();
+      const lastTwo = lastName.slice(-2).toLowerCase();
+      return firstTwo + lastTwo + age;
+    }
+
+    function addUser(event) {
+      event.preventDefault();
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const age = document.getElementById('age').value;
+
+      // Generate username
+      const username = createUsername(firstName, lastName, age);
+
+      const user = {
+        firstName: firstName,
+        lastName: lastName,
+        age: Number(age),
+        username: username
+      };
+
+      users.push(user);
+
+      const jsonData = JSON.stringify(users, null, 2);
+      console.log("JSON data:\n", jsonData);
+
+      displayUsers(users);
+      document.getElementById('userForm').reset();
+    }
+
+    function displayUsers(usersArray) {
+      const tbody = document.querySelector('#userTable tbody');
+      tbody.innerHTML = '';
+
+      usersArray.forEach(user => {
+        const row = document.createElement('tr');
+        for (let key in user) {
+          const cell = document.createElement('td');
+          cell.textContent = user[key];
+          row.appendChild(cell);
+        }
+        tbody.appendChild(row);
+      });
+    }
+
+    document.getElementById('userForm').addEventListener('submit', addUser);
+  </script>
+
+</body>
+</html>

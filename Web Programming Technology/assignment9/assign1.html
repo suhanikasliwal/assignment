@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<HEAD>
+    <TITLE>User</TITLE>
+    <script src="https://jsonplaceholder.typicode.com/posts"></script>
+    <script src="https://fake-json-api.mock.beeceptor.com/users"></script>
+
+</HEAD>
+<BODY>
+   <p id="output">I will come back</p>
+   <button type="button" onclick="loaddocu()">Changethe content</button>
+   
+<script>
+    function loaddocu(){
+        var xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange=function(){
+            if(this.readyState==4 && this.status==200){
+                document.getElementById("output").innerHTML=this.responseText
+            }
+        };
+     xhttp.open("GET", "githelp.txt", true); // Replace with your actual text file name
+    xhttp.send();
+    }
+    </script>
+</BODY>
+</html>

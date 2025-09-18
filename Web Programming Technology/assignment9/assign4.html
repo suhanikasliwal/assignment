@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Input Valid</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    input:invalid {
+      border-color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="names">Enter Name: </label>
+  <input type="text" id="names" required minlength="4" maxlength="12" />
+  <p id="output" class="error"></p>
+
+  <label for="email">Enter Email:</label>
+  <input type="email" id="email" required />
+  <p id="output1" class="error"></p>
+
+  <button id="check" onclick="check()">Validate</button>
+
+  <script>
+    function check() {
+      let nameInput = document.getElementById("names");
+      let emailInput = document.getElementById("email");
+      let error = document.getElementById("output");
+      let error1 = document.getElementById("output1");
+
+      let isValid = true;
+      error.textContent = "";
+      error1.textContent = "";
+
+      if (!nameInput.checkValidity()) {
+        if (nameInput.validity.valueMissing) {
+          error.textContent = "Username is required";
+        } else if (nameInput.validity.tooShort) {
+          error.textContent = "At least 4 characters are required";
+        } else if (nameInput.validity.tooLong) {
+          error.textContent = "Maximum 12 characters are allowed";
+        }
+        isValid = false;
+      }
+
+      if (!emailInput.checkValidity()) {
+        if (emailInput.validity.valueMissing) {
+          error1.textContent = "Email is required";
+        } else if (emailInput.validity.typeMismatch) {
+          error1.textContent = "Please enter a valid email address.";
+        }
+        isValid = false;
+      }
+
+      return isValid;
+    }
+  </script>
+
+</body>
+</html>

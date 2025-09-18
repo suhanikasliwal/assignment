@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<HEAD>
+    <TITLE>Slide</TITLE>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+</HEAD>
+<BODY>
+    <div id="s" style = "height: 80px; width: 80px; position: absolute; background-color: green;">This is me</div>
+    <button id="showAd">slideDown</button>
+    <button id="hideAd">SlideUp</button>
+    <script>
+   $(document).ready(function(){
+    $('#showAd').click(function(){
+      $('#s').slideDown(1000); // slide down over 1 second
+    });
+
+    $('#hideAd').click(function(){
+      $('#s').slideUp(1000); // slide up over 1 second
+    });
+  });
+    </script>
+</BODY>
+</HTML>

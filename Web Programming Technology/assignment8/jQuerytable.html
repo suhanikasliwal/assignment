@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<HEAD>
+    <TITLE>Table</TITLE>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+    <SCRIPT>
+        $(document).ready(function(){
+           $("button").click(function(){
+           let num1 = $("#num").val();
+           let num2 = $("#limit").val();
+           let num3 = $("#start").val();
+           let r = "";
+           for(let i=num3;i<=num2;i++){
+           r+=`${num1} x ${i} = ${num1*i}<br>`;
+           }
+           $("#table1").html(r);
+           })
+        })
+    </SCRIPT>
+</HEAD>
+<BODY>
+    <label>Enter a number of which you want to print table: </label>
+    <input type="number" id ="num"/>
+    <br>
+    <label>Enter a number upto which you want to print table: </label>
+    <input type="number" id="limit"/>
+    <br>
+    <label>Enter from where you want to start: </label>
+    <input type="number" id="start"/>
+    <br>
+    <button id="but" onclick="table()">Submit</button>
+    <p id="table1"></p>
+</BODY>

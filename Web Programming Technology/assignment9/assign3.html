@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch Post by ID</title>
+  <style>
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Fetch Post by ID</h2>
+  <label for="postId">Enter Post ID:</label>
+  <input type="number" id="postId" min="1" max="100">
+  <button onclick="loadPostById()">Get Post</button>
+
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will appear here -->
+    </tbody>
+  </table>
+
+  <script>
+    function loadPostById() {
+      var id = document.getElementById("postId").value;
+      if (!id) {
+        alert("Please enter a valid ID");
+        return;
+      }
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          var tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+          tableBody.innerHTML = ""; // Clear previous data
+
+          if (this.status == 200) {
+            var post = JSON.parse(this.responseText);
+            var row = tableBody.insertRow();
+            row.insertCell(0).textContent = post.id;
+            row.insertCell(1).textContent = post.title;
+          } else {
+            var row = tableBody.insertRow();
+            row.insertCell(0).textContent = "Not Found";
+            row.insertCell(1).textContent = "No post with ID " + id;
+          }
+        }
+      };
+      xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts/" + id, true);
+      xhttp.send();
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<HTML>
+    <HEAD>
+        <TITLE>FACTORIAL</TITLE>
+    </HEAD>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+         $("button").click(function(){
+            let num = $("#num").val();
+            let fact = 1;
+            for(let i=1;i<=num;i++){
+                fact *= i;
+            }
+            document.getElementById("an").innerHTML = fact;
+         })
+        })
+    </script>
+    <BODY>
+        <label>Enter the Number</label>
+        <input type="number" id="num"/>
+        <button onclick="fact()">On Click</button>
+        <p id="an"></p> 
+    </BODY>
+</HTML>

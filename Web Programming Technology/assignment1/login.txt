@@ -1,0 +1,14 @@
+<HTML>
+<HEAD>
+<TITLE>LOGIN</TITLE>
+</HEAD>
+<BODY>
+<FORM action="" method="post">
+<label>User Name:</label>
+<input type="text" name="username"></input><br>
+<label>Password:</label>
+<input type="password" name="password"/><br>
+<input type="button" name="login>LOGIN</input>
+</FORM>
+</BODY>
+</HTML>

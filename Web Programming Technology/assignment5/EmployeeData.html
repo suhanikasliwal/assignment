@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Employee Data</title>
+</head>
+<body>
+  <h1>Employee Details</h1>
+
+  <label>First Name: </label>
+  <input type="text" id="fName" />
+  <label>Last Name: </label>
+  <input type="text" id="lName" />
+  <label>Email Id: </label>
+  <input type="email" id="email" />
+  <label>DOB: </label>
+  <input type="date" id="dob" />
+  <button onclick="validate()">Submit</button>
+
+  <table border="1" id="t1">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email Id</th>
+      <th>DOB</th>
+      <th>Actions</th>
+    </tr>
+  </table>
+
+  <script>
+    function validate() {
+      const fName = document.getElementById("fName").value.trim();
+      const lName = document.getElementById("lName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const dob = document.getElementById("dob").value;
+
+      if (!fName || !lName || !email || !dob) {
+        alert("All fields are required!");
+        return;
+      }
+
+      const table = document.getElementById("t1");
+      const newRow = table.insertRow();
+
+      newRow.insertCell(0).innerText = fName;
+      newRow.insertCell(1).innerText = lName;
+      newRow.insertCell(2).innerText = email;
+      newRow.insertCell(3).innerText = dob;
+
+      const actionCell = newRow.insertCell(4);
+      const editBtn = document.createElement("button");
+      editBtn.innerText = "Edit";
+      editBtn.onclick = function () {
+        document.getElementById("fName").value = newRow.cells[0].innerText;
+        document.getElementById("lName").value = newRow.cells[1].innerText;
+        document.getElementById("email").value = newRow.cells[2].innerText;
+        document.getElementById("dob").value = newRow.cells[3].innerText;
+        table.deleteRow(newRow.rowIndex);
+      };
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.innerText = "Delete";
+      deleteBtn.onclick = function () {
+        table.deleteRow(newRow.rowIndex);
+      };
+
+      actionCell.appendChild(editBtn);
+      actionCell.appendChild(deleteBtn);
+
+      // Clear fields
+      document.getElementById("fName").value = "";
+      document.getElementById("lName").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("dob").value = "";
+    }
+  </script>
+</body>
+</html>

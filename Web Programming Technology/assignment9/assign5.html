@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<HEAD>
+    <TITLE>Try and Catch and Finally</TITLE>
+</HEAD>
+<BODY>
+    <button id="out" onclick="check()">Out</button>
+    <p id="para"></p>
+    <script>
+        function check(){
+        let num=1;
+        let num1=3;
+        try{
+            let r=num/num1;
+            console.log(r);
+            throw r;
+        }
+        catch(r){
+            if(r==Infinity){
+                document.getElementById("para").innerText = "Enter demonitor greater than zero";
+            }
+        }
+        finally{
+          console.log("Done");
+        }
+    }
+    </script>
+</BODY>
+</HTML>

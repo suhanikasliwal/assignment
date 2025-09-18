@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<HEAD>
+<TITLE>Calculator</TITLE>
+</HEAD>
+<BODY>
+<label for="num">Enter Number:</label>
+<input id="num" type="number"/>
+<label for="num1">Enter Number:</label>
+<input id="num1" type="number"/>
+  

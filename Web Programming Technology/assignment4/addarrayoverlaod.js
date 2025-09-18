@@ -1,0 +1,11 @@
+function addNumm(...a){
+let sum = 0;
+for(let i=0;i<a.length;i++){
+    sum += a[i];
+}
+return sum;
+}
+console.log(addNumm(1, 2, 3));
+
+
+

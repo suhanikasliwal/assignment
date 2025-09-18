@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animated Divs</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+    }
+    #div1, #div2 {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #3498db;
+      border-radius: 8px;
+    }
+    #div1 {
+      top: 0;
+      left: 0;
+      background-color: #e74c3c;
+    }
+    #div2 {
+      top: 0;
+      right: 0;
+      background-color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="div1"></div>
+  <div id="div2"></div>
+
+  <script>
+    // Starting positions
+    let pos1 = { top: 0, left: 0 };
+    let pos2 = { top: 0, right: 0 };
+
+    const div1 = document.getElementById('div1');
+    const div2 = document.getElementById('div2');
+
+    // Max distance to move diagonally before resetting
+    const maxMove = 200;
+
+    // Animation function for div1 (move down and right)
+    function animateDiv1() {
+      pos1.top += 2;
+      pos1.left += 2;
+
+      if (pos1.top > maxMove) pos1.top = 0;
+      if (pos1.left > maxMove) pos1.left = 0;
+
+      div1.style.top = pos1.top + 'px';
+      div1.style.left = pos1.left + 'px';
+    }
+
+    // Animation function for div2 (move down and left)
+    function animateDiv2() {
+      pos2.top += 2;
+      pos2.right += 2;
+
+      if (pos2.top > maxMove) pos2.top = 0;
+      if (pos2.right > maxMove) pos2.right = 0;
+
+      div2.style.top = pos2.top + 'px';
+      div2.style.right = pos2.right + 'px';
+    }
+
+    // Run animations repeatedly with setInterval callbacks
+    setInterval(() => {
+      animateDiv1();
+      animateDiv2();
+    }, 30); // every 30 milliseconds (~33 FPS)
+  </script>
+
+</body>
+</html>

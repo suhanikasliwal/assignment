@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Split Multiline Input</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <label>Enter a multiline input:</label><br>
+  <textarea id="take" rows="6" cols="40"></textarea><br>
+  <button id="but">Click</button>
+  <p id="p"></p>
+
+  <script>
+    $(document).ready(function(){
+      $("#but").click(function(){
+        let val = $("#take").val();
+        let len = val.length;
+        let partSize = Math.ceil(len / 4);
+        let result = "";
+
+        for(let i = 0; i < len; i += partSize){
+          result += val.substring(i, i + partSize) + "<br>";
+        }
+
+        $("#p").html(result);
+      });
+    });
+  </script>
+</body>
+</html>

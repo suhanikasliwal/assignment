@@ -1,0 +1,23 @@
+<HTML>
+    <HEAD>
+        <TITLE>
+        Button 
+        </TITLE>
+    </HEAD>
+    <BODY>
+        <H1>Button Event</H1>
+        <h2> Counter: <span id="counter">0</span></h2>
+        <button id="click" onclick="output()">Click</button>
+        <script>
+            let count=0;
+        function output(){
+            if(count>=10){
+                document.getElementById("click").style.backgroundColor="green";
+            return -1;
+            }
+        count++;
+        document.getElementById("counter").innerHTML = count;
+        }
+        </script>
+    </BODY>
+</HTML>

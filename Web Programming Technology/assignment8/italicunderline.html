@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Use of italic & underline</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p id="p">Hello</p>
+
+    <script>
+        $(document).ready(function(){
+            $('#p').mouseover(function(){
+                $(this).css({
+                    'text-decoration': 'underline',
+                    'font-style': 'italic'
+                });
+            }).mouseout(function(){
+                $(this).css({
+                    'text-decoration': 'none',
+                    'font-style': 'normal'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

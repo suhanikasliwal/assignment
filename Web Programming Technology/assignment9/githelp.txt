@@ -1,0 +1,18 @@
+git init- initialize file new or already available file in your folder
+git status - gives status of whether file is in staging area or not by red and green color text.
+git add - adds our file to staging area.
+git commit - saves our file.
+git clone - initializes and creates a copy of our local repository and then adds it to github repository which we created.
+git branch - new branch is created which copy of our main file.
+git checkout - control goes to branch or main as you specify.
+git merge - All the changes made to branch file is merged with main file.
+git init
+git status
+git add file.txt
+git commit -m "New File"
+git clone https://github.com/suhanikasliwal/Baserepository.git
+git branch branch_name
+git checkout branch_name
+git checkout main_name
+git merge branch_name 
+where m is message

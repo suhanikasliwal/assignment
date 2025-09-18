@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set</title>
+</head>
+<body onload="mySet()">
+<script>
+  function mySet() {
+    // Show "Hi" after 10 seconds (10000 ms)
+    setTimeout(function() {
+      alert("Hi");
+    }, 10000);
+
+    // Show "Hello" every second (1000 ms)
+    let id = setInterval(function() {
+      alert("Hello");
+    }, 1000);
+
+    // Stop the "Hello" alerts after 5 seconds (5000 ms)
+    setTimeout(function() {
+      clearInterval(id);
+    }, 5000);
+  }
+</script>
+</body>
+</html>
