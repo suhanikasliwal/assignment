@@ -1,0 +1,24 @@
+Bill Data
+
+Bill ID: 1	Suhani
+Item ID	Item Name	Item Price
+1	Laptop	55000
+2	Mouse	565
+3	iPad	20000
+--------------------------------------------------------------------Total: 8.99937e-039
+Bill Data
+
+Bill ID: 1	Suhani
+Item ID	Item Name	Item Price
+1	Laptop	50000
+2	Phone	20000
+3	SmartWatch	1150
+--------------------------------------------------------------------Total: 142300
+Bill Data
+
+Bill ID: 1	suhani
+Item ID	Item Name	Item Price
+1	laptop	60000
+2	phone	20000
+3	keyboard	700
+--------------------------------------------------------------------Total: 80700
